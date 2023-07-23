@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* 省略其它样式 */
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4C5B7F;">
+        <div class="container">
+            <a class="navbar-brand" href="http://127.0.0.1:5500/main.html">
+                <span class="go">Go</span><span class="ship-letter">Ship</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li>
+                        <a class="nav-link" href="#" style="color: #F8F9FA"></a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="http://127.0.0.1:5500/RequestService1.html">Book</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#our-service">Track</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#faq">Service</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="http://127.0.0.1:5500/aboutus2.html">About Us</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link" href="#" style="color: #F8F9FA">
+                            English
+                            <div class="dropdown-content">
+                                <a href="#">Option 1</a>
+                                <a href="#">Option 2</a>
+                                <a href="#">Option 3</a>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link join" href="#" style="color: #F8F9FA">Join</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 其他页面内容 -->
+
+</body>
+</html>

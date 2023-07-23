@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Noto+Serif:ital,wght@1,900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <title>GoShip</title>
+</head>
+
+<style>
+    /* styles.css */
+    @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+    body {
+        background-color: #F8F9FA;
+        color: #333333;
+    }
+
+    nav.navbar {
+        background-color: #4C5B7F;
+        border: 1px solid 		#F8F9FA   ;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 7%;
+        z-index: 999;
+        float: left;
+    }
+
+
+    nav.navbar .navbar-brand {
+        color: #F8F9FA;
+        font-family: 'Audiowide', cursive;
+        font-weight: bold;
+        font-size: 32px;
+    }
+
+    nav.navbar .navbar-brand .go {
+        color: #FF6E31;
+    }
+
+
+    nav.navbar .navbar-brand span.ship-letter {
+        color: #FFA41B;
+    }
+
+
+    nav.navbar .nav-link {
+        color: 	#F8F9FA ;
+        font-weight: Medium;
+        position: relative;
+        z-index: 1;
+        margin-left: 18px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        top: 100%; /* 将下拉菜单显示在触发元素下方 */
+        left: 0; /* 将下拉菜单与触发元素左对齐 */
+    }
+
+    .dropdown-content a {
+        display: block; /* 使菜单项独占一行 */
+        padding: 6px 18px; /* 调整菜单项的内边距 */
+        text-decoration: none;
+        color: #333333;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    nav.navbar .nav-link:hover {
+        color:#F8F9FA;
+    }
+
+    nav.navbar .nav-link.join {
+        position: relative;
+    }
+
+    nav.navbar .nav-link.join::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 38px;
+        border-radius: 10px;
+        background-color: #FFA41B;
+        z-index: -1;
+    }
+
+
+    footer {
+        padding: 50px 0;
+        background-color: #4C5B7F;
+    }
+
+    footer h5 {
+        color: #FFFFFF;
+    }
+
+    footer p {
+        color: #FFFFFF;
+    }
+
+    footer input[type="email"] {
+        width: 100%;
+        padding: 10px;
+    }
+
+    footer button.btn-primary {
+        margin-top: 10px;
+    }
+
+    .button {
+        border: none;
+        border-radius: 8px;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-family: Comfortaa;
+        font-size: 16px;
+        margin: 4px 2px;
+        background-color: #FFA41B; 
+        color: #F8F9FA; 
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .button2 {
+        background-color: #FFA41B; 
+        color: #F8F9FA; 
+        font-weight: bold;
+        border: 2px solid #F8F9FA;
+    }
+
+    .button2:hover {
+        background-color: #F8F9FA;
+        color: #FFA41B;
+    }
+
+    .sidebar {
+    width: 80px;
+    background-color: #fff;
+    position: fixed;
+    transform: translateY(-50%);
+    background-color: #4D67A5;
+    border: none; /* 去掉边框 */
+    outline: none; /* 去掉外边框 */
+    box-shadow: none; /* 去掉阴影效果 */
+    z-index: 9999;
+    }
+
+    .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    }
+
+    .sidebar li a {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1px solid transparent;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px; /* 调整文字大小 */
+    border-bottom: 2px solid transparent;
+    }
+
+
+    .sidebar li a:hover {
+    background-color: #333;
+    }
+
+    .sidebar li img {
+    width: 34px;
+    height: 34px;
+    }
+
+    .sidebar li span {
+    text-decoration: none;
+    font-size: 12px; /* 调整文字大小 */
+    white-space: nowrap; /* 禁止文本换行 */
+    }
+
+    .indented {
+     margin-left: 1em;
+    }
+
+    .gray-box {
+      background-color: #F3F3F3;
+      padding: 50px 100px 100px 350px; 
+    }
+    
+    .title-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+    }
+
+    .white-box {
+    background-color: #F8F9FA;
+    padding: 50px 100px 100px 350px; /* 将左侧的padding值设置为0 */
+    }
+
+    #myForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* gap: 10px; */
+    justify-items: start; /* 将justify-items属性设置为start */
+    margin-left: 50px;
+    margin-top: 40px; /* 调整上边距，比如将margin-top值改为50px */
+    }
+
+
+    #myForm label {
+      text-align: right;
+    }
+
+    #myForm input[type="time"] {
+      border: 2px solid orange;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .blue-box {
+    background-color: #243763;
+    padding: 3px 50px 100px 350px; /* 将左侧的padding值设置为0 */
+    }
+
+    .chat-room-container {
+      position: fixed; 
+      bottom: 20px; 
+      right: 90px; 
+      border: 2px solid #4D67A5;
+      border-radius: 5px;
+      padding: 10px;
+      width: 300px;
+      height: 400px;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 9999; 
+    }
+
+    .chat-message {
+      margin: 34px 0;
+      background-color: #4D67A5;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .chat-input {
+      display: flex;
+      position: fixed; 
+      width: 10%;
+      bottom: 40px; 
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 5px;
+      border: 1px solid #4D67A5;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+
+    .chat-input button {
+      padding: 5px 10px;
+      background-color: #FF6E31;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* 样式用于隐藏滚动条 */
+    .chat-room-container::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .chat-room-container::-webkit-scrollbar-thumb {
+      background-color: #007BFF;
+      border-radius: 5px;
+    }
+
+    .chat-room-container::-webkit-scrollbar-track {
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #FF6E31; /* Set the background color to blue */
+    color: #fff; /* Set the text color to white */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px; /* Add some padding to make it look like a button */
+    }
+
+    .received-message {
+    background-color: #ddd;
+    color: #000;
+    padding: 5px;
+    border-radius: 5px;
+    align-self: flex-start;
+    text-align: left;
+    }
+
+
+    .btn-warning:hover {
+        background-color: #FF8F00;
+        color: white;
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-warning:focus, 
+    .btn-warning:active {
+        background-color: #FF6F00;
+        color: white;
+        transform: scale(0.9);
+        transition: transform 0.3s ease-in-out;
+        outline: none;
+        box-shadow: none;
+    }
+    a.indented {
+        color: white;
+        text-decoration: none;
+    }
+    a.indented:hover {
+        text-decoration: underline;
+    }
+
+
+</style>
+
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4C5B7F;">
+        <div class="container">
+            <a class="navbar-brand" href="https://goshipexpressmain.netlify.app/">
+                <span class="go">Go</span><span class="ship-letter">Ship</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: #F8F9FA"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpressbook.netlify.app/">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpresstrack2.netlify.app/">Track</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #F8F9FA">
+                            Service
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="https://goshipexpressprice.netlify.app/">Price Inquiry</a>
+                            <a class="dropdown-item" href="https://goshipprocudure.netlify.app/">Shipping Procedure</a>
+                            <a class="dropdown-item" href="https://goshipexpressbranch.netlify.app/">Branch Location</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpressaboutus.netlify.app/">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #F8F9FA">
+                            English
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="https://mianzhuye.netlify.app/">简体中文</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link join" href="#" style="color: #F8F9FA">Join</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div>
+        <div class="sidebar" style="top: 41%; right: 0;">
+            <ul>
+                <li>
+                    <a href="#" id="onlineChatLink">
+                        <img src="https://i.postimg.cc/L5R9gzvW/online-FAQ.png" alt="chatimg">
+                        <span>Online chat</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" style="top: 50%; right: 0;">
+            <ul>
+                <li>
+                    <a href="#footer">
+                        <img src="https://i.postimg.cc/cLsN7xRv/hotline.png" alt="图片描述">
+                        <span>Hotline</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" style="top: 59%; right: 0;">
+            <ul>
+                <li>
+                    <a href="https://goshipexpressbranch.netlify.app/">
+                        <img src="https://i.postimg.cc/RhrkW4CV/branch.png" alt="图片描述">
+                        <span>Branch</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="chat-room-container" id="chatRoomContainer" style="display: none;">
+        <button id="closeButton" class="close-button">X</button>
+        <div class="chat-room" id="chatRoom">
+            <!-- Messages will be added here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type a message...">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+      
+    <br>
+    <br>
+
+
+    <section>
+        <div class="p-5 bg-light text-dark">
+            <h3 style="margin-right: 60px; margin-left: 60px; color: #243763;">Online Order</h3>
+        </div>
+    </section>
+    
+
+    <section>
+        <div class="p-5 bg-white text-dark" >
+            <h5 style="margin-right: 60px; margin-left: 60px; color: #243763;">Receiving and shipping information</h5>
+            <br>
+            <form class="row g-3" style="margin-right: 120px; margin-left: 120px;">
+                <div class="col-md-6">
+                    <label for="senderName" class="form-label">Sender's name</label>
+                    <input type="text" class="form-control" id="senderName" placeholder="Name...">
+                </div>
+                <div class="col-md-6">
+                    <label for="receiverName" class="form-label">Addressee's name</label>
+                    <input type="text" class="form-control" id="receiverName" placeholder="Name...">
+                </div>
+                <div class="col-md-6">
+                    <label for="senderPhone" class="form-label">Sender's Contact number</label>
+                    <input type="tel" class="form-control" id="senderPhone" placeholder="Phone Number...">
+                </div>
+                <div class="col-md-6">
+                    <label for="receiverPhone" class="form-label">Addressee's Contact number</label>
+                    <input type="tel" class="form-control" id="receiverPhone" placeholder="Phone Number...">
+                </div>
+                <div class="col-md-6">
+                    <label for="mailingAddress" class="form-label">Mailing address</label>
+                    <input type="text" class="form-control" id="mailingAddress" placeholder="Address...">
+                </div>
+                <div class="col-md-6">
+                    <label for="deliveryAddress" class="form-label">Delivery address</label>
+                    <input type="text" class="form-control" id="deliveryAddress" placeholder="Address...">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div class="p-5 bg-light text-dark">
+            <h5 style="margin-right: 60px; margin-left: 60px; color: #243763;">Depository information</h5>
+            <br>
+            <form class="row g-3" style="margin-right: 120px; margin-left: 120px;">
+                <div class="col-md-6">
+                    <label for="goodsName" class="form-label">Name of goods</label>
+                    <input type="text" class="form-control" id="goodsName" placeholder="Name..." oninput="updateInfo()">
+                </div>
+                <div class="col-md-6">
+                    <label for="goodsWeight" class="form-label">Weight(kg)</label>
+                    <input type="text" class="form-control" id="goodsWeight" placeholder="Weight..." oninput="updateInfo()">
+                </div>
+                <div class="col-md-6">
+                    <label for="senderPhone" class="form-label">Volume (m3)</label>
+                    <input type="tel" class="form-control" id="senderPhone" placeholder="Phone Number...">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div class="p-5 bg-white text-dark">
+            <h5 style="margin-right: 60px; margin-left: 60px; color: #243763;">Other services information</h5>
+            <br>
+            <form class="row g-3" style="margin-right: 120px; margin-left: 120px;">
+                <div class="col-md-6">
+                    <label for="senderName" class="form-label">Goods Insurance</label>
+                    <input type="text" class="form-control" id="GoodsInsurance" placeholder="...">
+                </div>
+                <div class="col-md-6">
+                    <label for="receiverName" class="form-label">Collecting Payments</label>
+                    <input type="text" class="form-control" id="CollectingPayments" placeholder="...">
+                </div>
+                <div class="col-md-6">
+                    <label for="senderPhone" class="form-label">Payment Method</label>
+                    <input type="tel" class="form-control" id="PaymentMethod" placeholder="..." oninput="updateInfo()">
+                </div>
+                <div class="col-md-6">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="col-md-6">
+                    <label for="visitDate" class="form-label">Visit Date</label>
+                    <input type="date" class="form-control" id="visitDate">
+                </div>
+                <div class="col-md-6">
+                    <label for="visitTime" class="form-label">Visit Time</label>
+                    <input type="time" class="form-control" id="visitTime">
+                </div>
+                
+            </form>
+            <br>
+            <label class="form-label" style="margin-right: 126px; margin-left: 126px;">Any Comments</label>
+            <form>
+                <div class="form-group" style="margin-right: 126px; margin-left: 126px;">
+                    <textarea class="form-control" id="comments" rows="6" placeholder="~Limit 200 words"></textarea>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div class="p-5 bg-dark text-white" >
+            <form class="row g-3" style="margin-right: 120px; margin-left: 600px;">
+                <div class="col-md-6">
+                    <p id="shippingProducts">Shipping Products:</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p id="estimatedSubtotal">Estimated Subtotal:   - $</p>
+                </div>
+                <div class="col-md-6">
+                    <p></p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p id="hst">HST:   - $</p>
+                </div>
+                <div class="col-md-6">
+                    <p id="ValueAdded"></p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p id="estimatedTotal">Estimated total:   - $</p>
+                </div>
+                <div class="col-12 text-end">
+                    <a class="btn btn-warning" style="background-color: #FFA41B;" href="https://goshipexpresscomfirm.netlify.app/">Payment</a>
+                </div>
+                
+            </form>
+        </div>
+    </section>
+    
+
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Service</h5>
+                    <a class="indented" href="https://goshipexpressbook.netlify.app/"> Book</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipexpresstrack2.netlify.app/"> Track</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipexpressprice.netlify.app/"> Price Inquiry</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipprocudure.netlify.app/"> Shipping Procedure</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Our Company</h5>
+                    <a class="indented" href="https://goshipexpressaboutus.netlify.app/">About GoShip</a><br>
+                    <br>
+                    <a class="indented" href="#news">News</a><br>   
+                    <br>
+                    <a class="indented" href="https://goshipexpressbranch.netlify.app/">Branch Locator</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>24-Hour Hotline: </p>
+                    <p class="indented"> (Canada) +1 289 155 6893</p>    
+                    <p class="indented"> (China) +86 183 293 1900</p> 
+                    <br>
+                    <h5>Newsletter</h5>
+                    <input type="email" placeholder="Your email here..." class="form-control mb-2">
+                    <button class="btn btn-primary">Subscribe</button>
+                    <br>
+                    <br>
+                    <p class="text-left">By submitting this form, you agree to our Terms of Use and acknowledge our Privacy Statement.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
+
+    <script>
+        function updateInfo() {
+            var goodsName = document.getElementById('goodsName').value;
+            var goodsWeight = document.getElementById('goodsWeight').value;
+            var PaymentMethod = document.getElementById('PaymentMethod').value;
+            var estimatedSubtotal = goodsWeight * 30;
+            var hst = estimatedSubtotal * 0.13;
+            var estimatedTotal = estimatedSubtotal + hst;
+
+            document.getElementById('shippingProducts').textContent = 'Shipping Products: ' + goodsName;
+            document.getElementById('estimatedSubtotal').textContent = 'Estimated Subtotal: $' + estimatedSubtotal.toFixed(2);
+            document.getElementById('hst').textContent = 'HST: $' + hst.toFixed(2);
+            document.getElementById('estimatedTotal').textContent = 'Estimated Total: $' + estimatedTotal.toFixed(2);
+
+            // Store data in localStorage
+            localStorage.setItem('goodsName', goodsName);
+            localStorage.setItem('PaymentMethod', PaymentMethod);
+            localStorage.setItem('estimatedSubtotal', estimatedSubtotal.toFixed(2));
+            localStorage.setItem('hst', hst.toFixed(2));
+            localStorage.setItem('estimatedTotal', estimatedTotal.toFixed(2));
+        }
+
+    </script>
+
+    <script>
+        const onlineChatLink = document.getElementById('onlineChatLink');
+        const chatRoomContainer = document.getElementById('chatRoomContainer');
+        const closeButton = document.getElementById('closeButton');
+        const chatRoom = document.getElementById('chatRoom');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        const initialMessages = [
+        'Welcome to the chat room!',
+        'Feel free to start chatting.',
+        ];
+
+        initialMessages.forEach(message => {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            // Add the "received-message" class to left-align initial messages
+            messageElement.className = 'chat-message received-message';
+            chatRoom.appendChild(messageElement);
+        });
+
+        onlineChatLink.addEventListener('click', () => {
+        chatRoomContainer.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', () => {
+        chatRoomContainer.style.display = 'none';
+        });
+
+        const handleSendMessage = () => {
+        const newMessage = messageInput.value.trim();
+        if (newMessage === '') {
+            return;
+        }
+
+        const messageElement = document.createElement('div');
+        messageElement.className = 'chat-message';
+        messageElement.textContent = newMessage;
+
+        chatRoom.appendChild(messageElement);
+
+        messageInput.value = '';
+        };
+
+        sendButton.addEventListener('click', handleSendMessage);
+
+        messageInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            handleSendMessage();
+        }
+        });
+    </script>
+</body>
+</html>
