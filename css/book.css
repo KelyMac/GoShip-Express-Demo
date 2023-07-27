@@ -1,0 +1,196 @@
+    @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+    body {
+        background-color: #F8F9FA;
+        color: #333333;
+    }
+
+    .button {
+        border: none;
+        border-radius: 8px;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-family: Comfortaa;
+        font-size: 16px;
+        margin: 4px 2px;
+        background-color: #FFA41B; 
+        color: #F8F9FA; 
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .button2 {
+        background-color: #FFA41B; 
+        color: #F8F9FA; 
+        font-weight: bold;
+        border: 2px solid #F8F9FA;
+    }
+
+    .button2:hover {
+        background-color: #F8F9FA;
+        color: #FFA41B;
+    }
+
+
+    .indented {
+     margin-left: 1em;
+    }
+
+    .gray-box {
+      background-color: #F3F3F3;
+      padding: 50px 100px 100px 350px; 
+    }
+    
+    .title-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+    }
+
+    .white-box {
+    background-color: #F8F9FA;
+    padding: 50px 100px 100px 350px;
+    }
+
+    #myForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* gap: 10px; */
+    justify-items: start; 
+    margin-left: 50px;
+    margin-top: 40px; 
+    }
+
+
+    #myForm label {
+      text-align: right;
+    }
+
+    #myForm input[type="time"] {
+      border: 2px solid orange;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .blue-box {
+    background-color: #243763;
+    padding: 3px 50px 100px 350px; 
+    }
+
+    .chat-room-container {
+      position: fixed; 
+      bottom: 20px; 
+      right: 90px; 
+      border: 2px solid #4D67A5;
+      border-radius: 5px;
+      padding: 10px;
+      width: 300px;
+      height: 400px;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 9999; 
+    }
+
+    .chat-message {
+      margin: 34px 0;
+      background-color: #4D67A5;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .chat-input {
+      display: flex;
+      position: fixed; 
+      width: 10%;
+      bottom: 40px; 
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 5px;
+      border: 1px solid #4D67A5;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+
+    .chat-input button {
+      padding: 5px 10px;
+      background-color: #FF6E31;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* 样式用于隐藏滚动条 */
+    .chat-room-container::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .chat-room-container::-webkit-scrollbar-thumb {
+      background-color: #007BFF;
+      border-radius: 5px;
+    }
+
+    .chat-room-container::-webkit-scrollbar-track {
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #FF6E31; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px; 
+    }
+
+    .received-message {
+    background-color: #ddd;
+    color: #000;
+    padding: 5px;
+    border-radius: 5px;
+    align-self: flex-start;
+    text-align: left;
+    }
+
+
+    .btn-warning:hover {
+        background-color: #FF8F00;
+        color: white;
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-warning:focus, 
+    .btn-warning:active {
+        background-color: #FF6F00;
+        color: white;
+        transform: scale(0.9);
+        transition: transform 0.3s ease-in-out;
+        outline: none;
+        box-shadow: none;
+    }
+    a.indented {
+        color: white;
+        text-decoration: none;
+    }
+    a.indented:hover {
+        text-decoration: underline;
+    }
