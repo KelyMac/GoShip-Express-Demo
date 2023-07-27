@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Noto+Serif:ital,wght@1,900&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <title>GoShip</title>
+</head>
+
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4C5B7F;">
+    <div class="container">
+        <a class="navbar-brand" href="https://mianzhuye.netlify.app/">
+            <span class="go">Go</span><span class="ship-letter">Ship</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: #F8F9FA"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://goshipexpressbook.netlify.app/">预定</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://goshipexpresstrack2.netlify.app/">追踪</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #F8F9FA">
+                        服务
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="https://goshipexpressprice.netlify.app/">价格计算</a>
+                        <a class="dropdown-item" href="https://goshipprocudure.netlify.app/">寄件流程</a>
+                        <a class="dropdown-item" href="https://goshipexpressbranch.netlify.app/">公司驻点</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://goshipexpressaboutus.netlify.app/">关于我们</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #F8F9FA">
+                        简体中文
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="https://goshipexpressmain.netlify.app/">English</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link join" href="#" style="color: #F8F9FA">注册</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  <div>
+    <div class="sidebar" style="top: 41%; right: 0;">
+        <ul>
+            <li>
+                <a href="#" id="onlineChatLink">
+                    <img src="https://i.postimg.cc/L5R9gzvW/online-FAQ.png" alt="chatimg">
+                    <span>在线聊天</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar" style="top: 50%; right: 0;">
+        <ul>
+            <li>
+                <a href="#footer">
+                    <img src="https://i.postimg.cc/cLsN7xRv/hotline.png" alt="图片描述">
+                    <span>热线</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar" style="top: 59%; right: 0;">
+        <ul>
+            <li>
+                <a href="https://goshipexpressbranch.netlify.app/">
+                    <img src="https://i.postimg.cc/RhrkW4CV/branch.png" alt="图片描述">
+                    <span>驻点</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+  </div>
+
+    <div class="chat-room-container" id="chatRoomContainer" style="display: none;">
+      <button id="closeButton" class="close-button">X</button>
+      <div class="chat-room" id="chatRoom">
+          <!-- Messages will be added here -->
+      </div>
+      <div class="chat-input">
+          <input type="text" id="messageInput" placeholder="Type a message...">
+          <button id="sendButton">发送</button>
+      </div>
+  </div>
+  
+
+    <div class="slideshow">
+        <img src="https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ad Image 1">
+        <img src="https://images.pexels.com/photos/4246112/pexels-photo-4246112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 2">
+        <img src="https://images.pexels.com/photos/6956892/pexels-photo-6956892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 3">
+    </div>
+    
+      
+
+    <div class="container">
+        <div class="flex-container">
+            <div class="orange-block">
+                <h4 class="orange-block h4" style="color: #f9f9f9;">追踪货物信息</h4>
+                <input type="TrackingNumber" placeholder="Enter Tracking Number ..." class="form-control mb-2">
+                <a href="https://goshipexpresstrack.netlify.app/" class="btn btn-primary5" id="trackNumber" oninput="updateInfo()">查询</a>
+            </div>
+            <div class="blue-block">
+                <div class="white-block"></div>
+                <div class="button1">
+                    <ul>
+                        <li><a href="https://goshipexpressbook.netlify.app/"><img src="https://i.postimg.cc/RhXy6T6X/order.png" alt="Home"><span>在线预定</span></a></li>
+                        <li><a href="https://goshipexpressprice.netlify.app/"><img src="https://i.postimg.cc/GpGfJRTB/priceinq.png" alt="Search"><span>价格计算</span></a></li>
+                        <li><a href="https://goshipexpressbranch.netlify.app/"><img src="https://i.postimg.cc/P5Zy04X9/loctor.png" alt="Cart"><span>公司驻点</span></a></li>
+                        <li><a href="https://goshipprocudure.netlify.app/"><img src="https://i.postimg.cc/C1KjMH0F/carea.png" alt="User"><span>寄件流程</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+
+
+      <div class="container1">
+      <div class="white-block1">
+        <div class="button-group">
+          <button class="botton3" onclick="changeAllText('text1')">快递</button>
+          <button class="botton3" onclick="changeAllText('text2')">运输</button>
+          <button class="botton3" onclick="changeAllText('text3')">其他服务</button>
+        </div>
+        <div class="textbox-container" style="margin-right: 180px;">
+          <div class="left-column"></div>
+          <div id="rightColumn" class="right-column"></div>
+        </div>
+      </div>
+    </div>
+      
+       <br>
+       <br>
+       <br>
+       <br>
+
+
+
+
+    <div class="news-container" id="news">
+        <h2 style="text-align: center; color: #FF6E31; font-weight: bold;">新闻</h2>
+        <br>
+        <br>
+        <div class="news-block">
+          <img class="news-image" src="https://images.pexels.com/photos/7706455/pexels-photo-7706455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="News Image">
+          <div class="news-content">
+            <p>GoShip激动地宣布推出我们新的快递服务!凭借我们的专业车队和先进的物流技术,我们保证您的货物快速可靠地送达。无论是本地运输还是国际运输,GoShip都能为您提供运输解决方案。</p>
+          </div>
+        </div>
+        <div class="news-block">
+          <img class="news-image" src="https://images.pexels.com/photos/7363053/pexels-photo-7363053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="News Image">
+          <div class="news-content">
+            <p>所有GoShip客户请注意!我们很高兴地通知,我们在纽约的分公司已经扩大,以便更好地满足你方的运输需要。新工厂配备了最先进的仓储设施和更大的物流团队,以确保及时处理您的货物。</p>
+          </div>
+        </div>
+        <div class="news-block">
+          <img class="news-image" src="https://images.pexels.com/photos/7843935/pexels-photo-7843935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="News Image">
+          <div class="news-content">
+            <p>我们很高兴地宣布,我们与全球领先的航空公司合作,以提高我们的国际航运能力。这种合作使我们能够提供广泛的目的地网络,并缩短您的货物运输时间。借助GoShip的扩展范围,你现在可以触及更多内容。</p>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="outer-wrapper">
+        <div class="wrapper">
+          <h2 style="color: #FF6E31; text-align: center; font-weight: bold;">评论区</h2>
+          <div class="comment-container">
+            <div class="comments">
+              <!-- 评论内容将在这里动态添加 -->
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+
+
+      
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>相关服务</h5>
+                    <p><a class="indented" href="https://goshipexpressbook.netlify.app/"> 预定</a></p>
+                    <p><a class="indented" href="https://goshipexpresstrack2.netlify.app/"> 追踪</a></p>
+                    <p><a class="indented" href="https://goshipexpressprice.netlify.app/"> 价格计算</a></p>
+                    <p><a class="indented" href="https://goshipprocudure.netlify.app/">寄件流程</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h5>关于我们</h5>
+                    <p><a class="indented" href="https://goshipexpressaboutus.netlify.app/">关于GoShip</a></p>
+                    <p><a class="indented" href="#news">新闻</a></p>   
+                    <p><a class="indented" href="https://goshipexpressbranch.netlify.app/">公司驻点</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h5>联系我们</h5>
+                    <p>24小时热线电话: </p>
+                    <p> (加拿大) +1 289 155 6893</p>    
+                    <p> (中国) +86 183 293 1900</p> 
+                </div>
+
+                <div class="col-md-3">
+                    <h5>新讯息</h5>
+                    <input type="email" placeholder="在此输入您的电子邮件..." class="form-control mb-2">
+                    <button class="btn btn-primary">订阅</button>
+                    <br>
+                    <br>
+                    <p class="text-left">通过提交此表格，您同意我们的使用条款并承认我们的隐私声明。</p>
+                </div>
+            </div>
+        </div>
+  </footer>
+  
+
+
+</body>
+</html>
