@@ -4,7 +4,7 @@ class Chat extends React.Component {
         this.state = {
         showChatBox: false,
         messages: [],
-        message: ''  // 添加这一行
+        message: ''  
         };
 
         this.toggleChatBox = this.toggleChatBox.bind(this);
@@ -19,7 +19,7 @@ class Chat extends React.Component {
     }
 
     handleMessage(event) {
-        this.setState({ message: event.target.value }); // 在这里更新message
+        this.setState({ message: event.target.value }); 
     }
 
     sendMessage() {
