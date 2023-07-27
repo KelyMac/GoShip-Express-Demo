@@ -13,10 +13,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>GoShip</title>
     </head>
 
 <style>
+    /* styles.css */
     @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
     body {
@@ -77,8 +79,8 @@
         min-width: 100px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
-        top: 100%; 
-        left: 0; 
+        top: 100%;
+        left: 0;
     }
 
     .dropdown-content a {
@@ -170,7 +172,7 @@
     position: fixed;
     transform: translateY(-50%);
     background-color: #4D67A5;
-    border: none;
+    border: none; 
     outline: none;
     box-shadow: none; 
     z-index: 9999;
@@ -208,17 +210,17 @@
     .sidebar li span {
     text-decoration: none;
     font-size: 12px; 
-    white-space: nowrap;
+    white-space: nowrap; 
     }
 
     .indented {
             margin-left: 1em;
     }
 
-    .section1 {
+    /* .section1 {
     display: flex;
     justify-content: center;
-    }
+    } */
 
 
     .container1 {
@@ -366,8 +368,8 @@
     right: 8px;
     font-size: 10px;
     cursor: pointer;
-    background-color: #FF6E31;
-    color: #fff;
+    background-color: #FF6E31; 
+    color: #fff; 
     border: none;
     border-radius: 5px;
     padding: 5px 10px; 
@@ -399,7 +401,50 @@
         text-decoration: underline;
     }
 
+    label {
+        color: #525252;
+    }
 
+    input[type="checkbox"] {
+        margin: 0 5px 0 20px;
+    }
+
+    #service-list {
+        margin-top: 20px;
+        border: 1px solid #4C5B7F;
+        padding: 10px;
+    }
+
+    #service-list li {
+        color: #FF6E31;
+    }
+
+    .filter-section {
+        margin-bottom: 1em;
+        color: #4C5B7F;
+    }
+
+    .card {
+        margin-bottom: 1em;
+    }
+
+    .card-header {
+        background-color: #4C5B7F;
+        color: #FFF;
+    }
+
+    .card-body {
+        color: #b7b7b7;
+;
+    }
+
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
 
 </style>
 
@@ -474,7 +519,7 @@
             <ul>
                 <li>
                     <a href="#footer">
-                        <img src="https://i.postimg.cc/cLsN7xRv/hotline.png" alt="#">
+                        <img src="https://i.postimg.cc/cLsN7xRv/hotline.png" alt="图片描述">
                         <span>Hotline</span>
                     </a>
                 </li>
@@ -484,7 +529,7 @@
             <ul>
                 <li>
                     <a href="https://goshipexpressbranch.netlify.app/">
-                        <img src="https://i.postimg.cc/RhrkW4CV/branch.png" alt="#">
+                        <img src="https://i.postimg.cc/RhrkW4CV/branch.png" alt="图片描述">
                         <span>Branch</span>
                     </a>
                 </li>
@@ -495,7 +540,6 @@
     <div class="chat-room-container" id="chatRoomContainer" style="display: none;">
         <button id="closeButton" class="close-button">X</button>
         <div class="chat-room" id="chatRoom">
-            <!-- Messages will be added here -->
         </div>
         <div class="chat-input">
             <input type="text" id="messageInput" placeholder="Type a message...">
@@ -504,11 +548,11 @@
     </div>
     
 
-    <section>
+    <section style="background-color: #f5f5f5;">
         <h3 style="color: #243763; padding: 100px 100px 30px 150px; ">Price Inquiry</h3>
     </section>
 
-    <section class="section1" style="background-color: #f5f5f5;">
+    <section>
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -551,12 +595,69 @@
         </div>
     </section>
     
+
+    <br>
+    <br>
+    <section style="background-color: #f5f5f5;">
+        <h3 style="color: #243763; padding: 70px 100px 30px 150px; ">Service Filter</h3>
+    </section>
+
+    <section class="container d-flex flex-column justify-content-center align-items-center vh-50">
+        <br>
+        <br>
+        <div class="row filter-section w-50">
+            <div class="col-12">
+                <h5 class="text-center">Transportation Zone</h5>
+                <div class="d-flex justify-content-center">
+                    <input type="checkbox" class="filter" name="zone" id="interzone" value="interzone">
+                    <label for="interzone">International   </label>
+                    <input type="checkbox" class="filter" name="zone" id="nationzone" value="nationzone">
+                    <label for="nationzone">National   </label>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-section w-50">
+            <div class="col-12">
+                <h5 class="text-center">Weight</h5>
+                <div class="d-flex justify-content-center">
+                    <input type="checkbox" class="filter" name="type" id="0-20lb" value="0-20lb">
+                    <label for="0-20lb">0-20lb</label>
+                    <input type="checkbox" class="filter" name="type" id="21kg_and_more" value="21kg and more">
+                    <label for="21kg_and_more">21kg and more</label>
+                    <input type="checkbox" class="filter" name="type" id="others" value="Others">
+                    <label for="others">Others</label>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-section w-50">
+            <div class="col-12">
+                <h5 class="text-center">Transport speed</h5>
+                <div class="d-flex justify-content-center">
+                    <input type="checkbox" class="filter" name="mode" id="fast" value="Fast">
+                    <label for="fast">Fast</label>
+                    <input type="checkbox" class="filter" name="mode" id="standard" value="Standard">
+                    <label for="standard">Standard</label>
+                </div>
+            </div>
+        </div>
+        <div class="row w-50">
+            <div class="col-12">
+                <h4 class="text-center" style="color: #243763;">Recommended Service</h4>
+                <ul id="service-list" class="text-center">
+                </ul>
+            </div>
+        </div>
+    </section>
     
     
 
 
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+
     <br>
     <br>
 
@@ -584,6 +685,7 @@
                 <li>Due to variations in the distribution of network points in different districts and counties, some remote locations may have extended delivery times. Please refer to the local branch or delivery personnel for specific time frame information.</li>
             </ul>
     </section>
+
 
 
 
@@ -721,6 +823,60 @@
         });
     </script>
 
+    <script>
+        let services = [
+            {"type": "0-20lb", "name": "Small Parcel Shipping", "mode": "Fast", "category": "Land"},
+            {"type": "21kg and more", "name": "Large Cargo Shipping", "mode": "Standard", "category": "Sea"},
+            {"type": "Others", "name": "Document Express", "mode": "Fast", "category": "Air"},
+            {"type": "Others", "name": "Additional Service", "mode": "Standard", "category": "All"}
+        ];
+
+        let transportation = [
+            {"mode": "Fast", "name": "Air"},
+            {"mode": "Standard", "name": "Sea"},
+            {"mode": "Standard", "name": "Land"}
+        ];
+
+        let typeFilters = [];
+        let modeFilters = [];
+
+        function updateServiceList() {
+        $('#service-list').empty();
+        services.forEach(function(service) {
+            if ((typeFilters.length === 0 || typeFilters.includes(service.type))) {
+                $('#service-list').append('<li>' + service.name + '</li>');
+            }
+        });
+        transportation.forEach(function(trans) {
+            if (modeFilters.length === 0 || modeFilters.includes(trans.mode)) {
+                $('#service-list').append('<li>' + trans.name + '</li>');
+            }
+        });
+        }
+
+        function updateFilters() {
+        typeFilters = [];
+        modeFilters = [];
+        $('.filter').each(function() {
+            if (this.checked) {
+                if (['0-20lb', '21kg and more', 'Others'].includes(this.value)) {
+                    typeFilters.push(this.value);
+                } else if (['Fast', 'Standard'].includes(this.value)) {
+                    modeFilters.push(this.value);
+                }
+            }
+        });
+        updateServiceList();
+        }
+
+        $(document).ready(function() {
+            updateServiceList();
+            $('.filter').change(function() {
+                $('input[type=checkbox][name=' + this.name + ']').not(this).prop('checked', false);
+                updateFilters();
+            });
+        });
+    </script>
 
 
 
