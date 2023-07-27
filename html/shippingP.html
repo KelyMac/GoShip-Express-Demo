@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 引入 Bootstrap CSS 文件 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- 引入自定义 CSS 文件 -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Noto+Serif:ital,wght@1,900&display=swap" rel="stylesheet">
+
+    <!-- 引入 jQuery（Bootstrap） -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- 引入 Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- 引入 React -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <title>GoShip</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4C5B7F;">
+        <div class="container">
+            <a class="navbar-brand" href="https://goshipexpressmain.netlify.app/">
+                <span class="go">Go</span><span class="ship-letter">Ship</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: #F8F9FA"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpressbook.netlify.app/">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpresstrack2.netlify.app/">Track</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #F8F9FA">
+                            Service
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="https://goshipexpressprice.netlify.app/">Price Inquiry</a>
+                            <a class="dropdown-item" href="https://goshipprocudure.netlify.app/">Shipping Procedure</a>
+                            <a class="dropdown-item" href="https://goshipexpressbranch.netlify.app/">Branch Location</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpressaboutus.netlify.app/">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #F8F9FA">
+                            English
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="https://mianzhuye.netlify.app/">简体中文</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link join" href="#" style="color: #F8F9FA">Join</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div>
+        <div class="sidebar" style="top: 41%; right: 0;">
+            <ul>
+                <li>
+                    <a href="#" id="onlineChatLink">
+                        <img src="https://i.postimg.cc/L5R9gzvW/online-FAQ.png" alt="chatimg">
+                        <span>Online chat</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" style="top: 50%; right: 0;">
+            <ul>
+                <li>
+                    <a href="#footer">
+                        <img src="https://i.postimg.cc/cLsN7xRv/hotline.png" alt="#">
+                        <span>Hotline</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" style="top: 59%; right: 0;">
+            <ul>
+                <li>
+                    <a href="https://goshipexpressbranch.netlify.app/">
+                        <img src="https://i.postimg.cc/RhrkW4CV/branch.png" alt="#">
+                        <span>Branch</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="chat-room-container" id="chatRoomContainer" style="display: none;">
+        <button id="closeButton" class="close-button">X</button>
+        <div class="chat-room" id="chatRoom">
+            <!-- Messages will be added here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type a message...">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+    
+    <br>
+
+    <div class="container mt-5">
+
+        <!-- Jumbotron for Title and Video -->
+        <div class="jumbotron p-4 p-md-5 rounded-lg">
+            <h1 class="display-4">Shipping Procedure</h1>
+            <hr class="my-4">
+            <!-- Video Embedding -->
+            <div class="card">
+                <div class="d-flex justify-content-center align-items-center" style="height:500px;">
+                    <div class="embed-responsive embed-responsive-16by9 rounded-lg shadow-lg">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{your_video_id}" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping Procedure -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h2 class="text-custom mb-4"><u>Steps to Send a Package:</u></h2>
+            </div>
+            <div class="col-12">
+                <div class="procedure-card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">1. <strong>Prepare Your Package:</strong> Pack your item in a suitable box or envelope. Make sure the item is well-protected.</li>
+                        <li class="list-group-item">2. <strong>Measure and Weigh:</strong> Measure the dimensions of the package and weigh it. This information will be required to calculate the shipping cost.</li>
+                        <li class="list-group-item">3. <strong>Label Your Package:</strong> Clearly write or print the address of the recipient. Make sure the label is secure and clearly visible.</li>
+                        <li class="list-group-item">4. <strong>Choose a Shipping Service:</strong> Visit our website or one of our offices to choose a shipping service that suits your needs.</li>
+                        <li class="list-group-item">5. <strong>Pay for the Shipping:</strong> You can pay for the shipping service online or at our office.</li>
+                        <li class="list-group-item">6. <strong>Drop Off or Schedule a Pickup:</strong> Drop off your package at our office or schedule a pickup at your location.</li>
+                        <li class="list-group-item">7. <strong>Track Your Package:</strong> You can track the progress of your shipment using the tracking number provided.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <br>
+    <br>
+
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Service</h5>
+                    <a class="indented" href="https://goshipexpressbook.netlify.app/"> Book</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipexpresstrack2.netlify.app/"> Track</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipexpressprice.netlify.app/"> Price Inquiry</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipprocudure.netlify.app/"> Shipping Procedure</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Our Company</h5>
+                    <a class="indented" href="https://goshipexpressaboutus.netlify.app/">About GoShip</a><br>
+                    <br>
+                    <a class="indented" href="#news">News</a><br>   
+                    <br>
+                    <a class="indented" href="https://goshipexpressbranch.netlify.app/">Branch Locator</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>24-Hour Hotline: </p>
+                    <p class="indented"> (Canada) +1 289 155 6893</p>    
+                    <p class="indented"> (China) +86 183 293 1900</p> 
+                    <br>
+                    <h5>Newsletter</h5>
+                    <input type="email" placeholder="Your email here..." class="form-control mb-2">
+                    <button class="btn btn-primary">Subscribe</button>
+                    <br>
+                    <br>
+                    <p class="text-left">By submitting this form, you agree to our Terms of Use and acknowledge our Privacy Statement.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
