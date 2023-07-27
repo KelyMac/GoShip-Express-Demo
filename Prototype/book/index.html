@@ -702,7 +702,6 @@
         initialMessages.forEach(message => {
             const messageElement = document.createElement('div');
             messageElement.textContent = message;
-            // Add the "received-message" class to left-align initial messages
             messageElement.className = 'chat-message received-message';
             chatRoom.appendChild(messageElement);
         });
