@@ -1,0 +1,117 @@
+    @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+    body {
+        background-color: #F8F9FA;
+        color: #333333;
+    }
+
+    nav.navbar {
+        background-color: #4C5B7F;
+        border: 1px solid 		#F8F9FA   ;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 7%;
+        z-index: 999;
+        float: left;
+    }
+
+
+    nav.navbar .navbar-brand {
+        color: #F8F9FA;
+        font-family: 'Audiowide', cursive;
+        font-weight: bold;
+        font-size: 32px;
+    }
+
+    nav.navbar .navbar-brand .go {
+        color: #FF6E31;
+    }
+
+
+    nav.navbar .navbar-brand span.ship-letter {
+        color: #FFA41B;
+    }
+
+
+    nav.navbar .nav-link {
+        color: 	#F8F9FA ;
+        font-weight: Medium;
+        position: relative;
+        z-index: 1;
+        margin-left: 18px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        top: 100%;
+        left: 0;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 6px 18px; 
+        text-decoration: none;
+        color: #333333;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    nav.navbar .nav-link:hover {
+        color:#F8F9FA;
+    }
+
+    nav.navbar .nav-link.join {
+        position: relative;
+    }
+
+    nav.navbar .nav-link.join::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 38px;
+        border-radius: 10px;
+        background-color: #FFA41B;
+        z-index: -1;
+    }
+
+
+    footer {
+        padding: 50px 0;
+        background-color: #4C5B7F;
+    }
+
+    footer h5 {
+        color: #FFFFFF;
+    }
+
+    footer p {
+        color: #FFFFFF;
+    }
+
+    footer input[type="email"] {
+        width: 100%;
+        padding: 10px;
+    }
+
+    footer button.btn-primary {
+        margin-top: 10px;
+    }
