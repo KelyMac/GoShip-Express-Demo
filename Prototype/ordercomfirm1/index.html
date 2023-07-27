@@ -659,12 +659,10 @@
         initialMessages.forEach(message => {
             const messageElement = document.createElement('div');
             messageElement.textContent = message;
-            // Add the "received-message" class to left-align initial messages
             messageElement.className = 'chat-message received-message';
             chatRoom.appendChild(messageElement);
         });
     
-        // 点击 onlineChatLink 时的事件处理函数
         const handleOnlineChatLinkClick = (event) => {
             event.preventDefault();
             chatRoomContainer.style.display = 'block'; 
