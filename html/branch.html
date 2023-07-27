@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link href="styles.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Noto+Serif:ital,wght@1,900&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>GoShip</title>
+</head>
+    
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4C5B7F;">
+        <div class="container">
+            <a class="navbar-brand" href="https://goshipexpressmain.netlify.app/">
+                <span class="go">Go</span><span class="ship-letter">Ship</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: #F8F9FA"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpressbook.netlify.app/">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpresstrack2.netlify.app/">Track</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #F8F9FA">
+                            Service
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="https://goshipexpressprice.netlify.app/">Price Inquiry</a>
+                            <a class="dropdown-item" href="https://goshipprocudure.netlify.app/">Shipping Procedure</a>
+                            <a class="dropdown-item" href="https://goshipexpressbranch.netlify.app/">Branch Location</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://goshipexpressaboutus.netlify.app/">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #F8F9FA">
+                            English
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="https://mianzhuye.netlify.app/">简体中文</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link join" href="#" style="color: #F8F9FA">Join</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div>
+        <div class="sidebar" style="top: 41%; right: 0;">
+            <ul>
+                <li>
+                    <a href="#" id="onlineChatLink">
+                        <img src="https://i.postimg.cc/L5R9gzvW/online-FAQ.png" alt="chatimg">
+                        <span>Online chat</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" style="top: 50%; right: 0;">
+            <ul>
+                <li>
+                    <a href="#footer">
+                        <img src="https://i.postimg.cc/cLsN7xRv/hotline.png" alt="#">
+                        <span>Hotline</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" style="top: 59%; right: 0;">
+            <ul>
+                <li>
+                    <a href="https://goshipexpressbranch.netlify.app/">
+                        <img src="https://i.postimg.cc/RhrkW4CV/branch.png" alt="#">
+                        <span>Branch</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="chat-room-container" id="chatRoomContainer" style="display: none;">
+        <button id="closeButton" class="close-button">X</button>
+        <div class="chat-room" id="chatRoom">
+            <!-- Messages will be added here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type a message...">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+    
+
+    <br>
+    <br>
+    <br>
+
+    
+    <section class="section1" style="background-color: #f5f5f5; padding: 50px 0;">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #243763; font-size: 2.5em;">Branch Locator</h2>
+            <div class="button-group text-center mb-5">
+                <button class="botton3 active" onclick="switchBranch('canada')">Canada</button>
+                <button class="botton3" onclick="switchBranch('china')">China</button>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-5">
+                    <div id="canada" class="branch-info">
+                        <h3 style="color: #243763; font-size: 1.5em; margin-bottom: 20px;">
+                            <i class="fa fa-map-marker" aria-hidden="true" style="color: #FF6E31; text-indent: 120px;"></i> Somerset Branch
+                        </h3>
+                        <p style="color: #495057; text-indent: 150px;">656 Somerset St W, Ottawa, ON K1R 4A2</p>
+                        <p style="color: #FF6E31; text-indent: 150px;">(613)567-3850</p>
+                        <p style="color: #495057; text-indent: 150px;"><strong>Opening hours:</strong></p>
+                        <p style="color: #495057; text-indent: 150px;">Monday - Friday: 9:00am - 6:00pm</p>
+                        <p style="color: #495057; text-indent: 150px;">Saturday - Sunday: 9:00am - 1:00pm</p>
+    
+                        <h3 style="color: #243763; font-size: 1.5em; margin-top: 40px; margin-bottom: 20px; text-indent: 60px;">
+                            <i class="fa fa-map-marker" aria-hidden="true" style="color: #FF6E31;"></i> Carlingwood Branch</h3>
+                        <p style="color: #495057;text-indent: 150px;">2136 Carling Ave, Ottawa, ON K2A 2P9</p>
+                        <p style="color: #FF6E31; text-indent: 150px;">(613)567-5725</p>
+                        <p style="color: #495057; text-indent: 150px;"><strong>Opening hours:</strong></p>
+                        <p style="color: #495057; text-indent: 150px;">Monday - Friday: 9:00am - 6:00pm</p>
+                        <p style="color: #495057; text-indent: 150px;">Saturday: 9:00am - 1:00pm</p>
+                        <p style="color: #495057; text-indent: 150px;">Sunday: Closed</p>
+    
+                        <h3 style="color: #243763; font-size: 1.5em; margin-top: 40px; margin-bottom: 20px; text-indent: 60px;">
+                            <i class="fa fa-map-marker" aria-hidden="true" style="color: #FF6E31;"></i> Mount Pleasant Branch</h3>
+                        <p style="color: #495057;text-indent: 150px;">12 W Broadway, Vancouver, BC V5Y 7P6</p>
+                        <p style="color: #FF6E31; text-indent: 150px;">(613)567-8910</p>
+                        <p style="color: #495057; text-indent: 150px;"><strong>Opening hours:</strong></p>
+                        <p style="color: #495057; text-indent: 150px;">Monday - Friday: 9:00am - 6:00pm</p>
+                        <p style="color: #495057; text-indent: 150px;">Saturday - Sunday: 9:00am - 1:00pm</p>
+                    </div>
+                    <div id="china" class="branch-info" style="display: none;">
+                        <h3 style="color: #243763; font-size: 1.5em; margin-bottom: 20px;">
+                            <i class="fa fa-map-marker" aria-hidden="true" style="color: #FF6E31; text-indent: 120px;"></i> Beijing Branch
+                        </h3>
+                        <p style="color: #495057; text-indent: 150px;">100 West Chang'an Street, Xicheng District, Beijing</p>
+                        <p style="color: #FF6E31; text-indent: 150px;">(+86) 10-1234-5678</p>
+                        <p style="color: #495057; text-indent: 150px;"><strong>Opening hours:</strong></p>
+                        <p style="color: #495057; text-indent: 150px;">Monday - Friday: 9:00am - 6:00pm</p>
+                        <p style="color: #495057; text-indent: 150px;">Saturday - Sunday: 10:00am - 4:00pm</p>
+    
+                        <h3 style="color: #243763; font-size: 1.5em; margin-top: 40px; margin-bottom: 20px; text-indent: 60px;">
+                            <i class="fa fa-map-marker" aria-hidden="true" style="color: #FF6E31;"></i> Shanghai Branch</h3>
+                        <p style="color: #495057; text-indent: 150px;">200 Lujiazui Ring Road, Pudong New Area, Shanghai</p>
+                        <p style="color: #FF6E31; text-indent: 150px;">(+86) 21-1234-5678</p>
+                        <p style="color: #495057; text-indent: 150px;"><strong>Opening hours:</strong></p>
+                        <p style="color: #495057; text-indent: 150px;">Monday - Friday: 9:00am - 6:00pm</p>
+                        <p style="color: #495057; text-indent: 150px;">Saturday: 10:00am - 4:00pm</p>
+                        <p style="color: #495057; text-indent: 150px;">Sunday: Closed</p>
+    
+                        <h3 style="color: #243763; font-size: 1.5em; margin-top: 40px; margin-bottom: 20px; text-indent: 60px;">
+                            <i class="fa fa-map-marker" aria-hidden="true" style="color: #FF6E31;"></i> Guangzhou Branch</h3>
+                        <p style="color: #495057; text-indent: 150px;">300 Central Avenue, Tianhe District, Guangzhou</p>
+                        <p style="color: #FF6E31; text-indent: 150px;">(+86) 20-1234-5678</p>
+                        <p style="color: #495057;text-indent: 150px;"><strong>Opening hours:</strong></p>
+                        <p style="color: #495057; text-indent: 150px;">Monday - Friday: 9:00am - 6:00pm</p>
+                        <p style="color: #495057; text-indent: 150px;">Saturday - Sunday: 10:00am - 4:00pm</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="map" class="mt-4" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+
+
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Service</h5>
+                    <a class="indented" href="https://goshipexpressbook.netlify.app/"> Book</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipexpresstrack2.netlify.app/"> Track</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipexpressprice.netlify.app/"> Price Inquiry</a><br>
+                    <br>
+                    <a class="indented" href="https://goshipprocudure.netlify.app/"> Shipping Procedure</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Our Company</h5>
+                    <a class="indented" href="https://goshipexpressaboutus.netlify.app/">About GoShip</a><br>
+                    <br>
+                    <a class="indented" href="#news">News</a><br>   
+                    <br>
+                    <a class="indented" href="https://goshipexpressbranch.netlify.app/">Branch Locator</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>24-Hour Hotline: </p>
+                    <p class="indented"> (Canada) +1 289 155 6893</p>    
+                    <p class="indented"> (China) +86 183 293 1900</p> 
+                    <br>
+                    <h5>Newsletter</h5>
+                    <input type="email" placeholder="Your email here..." class="form-control mb-2">
+                    <button class="btn btn-primary">Subscribe</button>
+                    <br>
+                    <br>
+                    <p class="text-left">By submitting this form, you agree to our Terms of Use and acknowledge our Privacy Statement.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
