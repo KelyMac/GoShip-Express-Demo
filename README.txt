@@ -19,4 +19,4 @@ https://goshiphome.netlify.app
 
 
 -----------------------------------------------------------------------------
-2023/07/27 update: organize the repository file format
+2023/07/27 update: manage and organize the repository file format
